@@ -1,4 +1,7 @@
-# DEFEAT: Discrete Latent Feature based Adversarial Training
+# DEFEAT: Discrete Latent Feature based Adversarial Training [ICLR 2026, Poster]
+> [**Discrete Latent Features Ablate Adversarial Attack: A Robust Prompt Tuning Framework for VLMs**]([https://arxiv.org/abs/2412.19087](https://openreview.net/forum?id=lZgORA63ew))<br>
+> Yang Chen, Yanbin Wei, James Kwok, Yu Zhang
+
 ## Preparation
 ### Code
 
@@ -58,3 +61,20 @@ bash apt_train.sh caltech101 vit_b32 16 16 4 2.67 3
 # Test accuracy and robustness
 bash apt_test.sh caltech101 vit_b32 200 16 16 4 2.67 3
 ```
+## License
+
+This project is licensed under the [Apache-2.0 License](LICENSE).
+
+## Citation
+If you find our paper of codebase useful, please consider citing us as:
+```bibtex
+  @inproceedings{chen2026discrete,
+    title={Discrete Latent Features Ablate Adversarial Attack: A Robust Prompt Tuning Framework for VLMs},
+    author={Yang Chen and Yanbin Wei and James Kwok and Yu Zhang},
+    booktitle={The Fourteenth International Conference on Learning Representations},
+    year={2026},
+    url={https://openreview.net/forum?id=lZgORA63ew}
+  }
+
+```
+
