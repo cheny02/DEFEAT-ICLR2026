@@ -9,7 +9,7 @@ This code is built on top of [CoOp](https://github.com/KaiyangZhou/CoOp) which e
 
 ### Data
 
-Follow [DATASETS.md](DATASETS.md) to install the datasets. After successfully set up the datasets, the data directory variables, `DATA`, in each script under `/DEFEAT_code/scripts` MUST be updated with the root path of those datasets.  
+Follow [DATASETS.md](DATASETS.md) to install the datasets. After successfully set up the datasets, update the data directory variable, `DATA`, in each script under `/DEFEAT_code/scripts`, or pass it at runtime as `DATA=/path/to/datasets bash scripts/<script_name>.sh`.
 
 ### Pre-trained Robust CLIP Backbone
 
@@ -61,6 +61,14 @@ bash apt_train.sh caltech101 vit_b32 16 16 4 2.67 3
 # Test accuracy and robustness
 bash apt_test.sh caltech101 vit_b32 200 16 16 4 2.67 3
 ```
+
+Run the command below to train and test FAP on Caltech101.
+```bash
+# Adversarial training
+DATA=/path/to/datasets bash scripts/fap_train.sh caltech101 vit_b32_ep10 2 16 4 2.67 3 1.5
+# Test accuracy and robustness
+DATA=/path/to/datasets bash scripts/fap_test.sh caltech101 vit_b32_ep10 10 2 16 4 2.67 3 1.5 pgd
+```
 ## License
 
 This project is licensed under the [Apache-2.0 License](LICENSE).
@@ -77,4 +85,3 @@ If you find our paper of codebase useful, please consider citing us as:
   }
 
 ```
-

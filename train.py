@@ -22,6 +22,7 @@ import datasets.imagenet
 
 import trainers.apt
 import trainers.defeat
+import trainers.fap
 
 # os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 def print_args(args, cfg):
@@ -114,8 +115,21 @@ def extend_cfg(cfg):
     cfg.TRAINER.DEFEAT.ATK_TEST = False
     cfg.TRAINER.DEFEAT.ATK = 'pgd'
 
+    # Config for FAP
+    cfg.TRAINER.FAP = CN()
+    cfg.TRAINER.FAP.N_CTX = 2
+    cfg.TRAINER.FAP.CTX_INIT = "a photo of a"
+    cfg.TRAINER.FAP.PREC = "fp16"
+    cfg.TRAINER.FAP.PROMPT_DEPTH = 9
+
+    cfg.ATTACK = CN()
+    cfg.ATTACK.PGD = CN()
+    cfg.ATTACK.PGD.ADV_TERM = "cos"
+    cfg.ATTACK.PGD.LAMBDA_1 = 1.0
+
     cfg.DATASET.SUBSAMPLE_CLASSES = "all"  # all, base or new
     cfg.MODEL.BACKBONE.ROBUST = True
+    cfg.MODEL.BACKBONE.FARE = False
 
     
 def setup_cfg(args):
